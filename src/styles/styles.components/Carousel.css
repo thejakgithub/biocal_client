@@ -1,0 +1,42 @@
+@media screen and (max-width: 480px) {
+  .img {
+    height: 200px;
+    object-fit: cover;
+  }
+  .carousel-wrapper{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .img {
+    height: 300px;
+    object-fit: cover;
+  }
+  .carousel-wrapper{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 1279px) and (min-width: 769px) {
+  .img {
+    height: 400px;
+    object-fit: cover;
+  }
+  .carousel-wrapper{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+}
+
+@media screen and (min-width: 1280px) {
+  .img {
+    height: 550px;
+    width: 100%;
+
+    object-fit: cover;
+  }
+}

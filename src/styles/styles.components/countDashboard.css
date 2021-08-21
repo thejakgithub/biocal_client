@@ -1,0 +1,12 @@
+.size{
+    width: 14rem;
+    height: 5.8rem;
+}
+
+@media (max-width: 576px) {
+    .size{
+        width: 100%;
+        height: 5.8rem;
+    }
+
+}

@@ -1,0 +1,35 @@
+@media screen and (max-width: 480px) {
+.wrapper-userproject{
+    min-height: 40.5rem;
+}
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) and (orientation:portrait)  {
+    .wrapper-userproject{
+        min-height: 49rem;
+    }
+}
+
+@media screen and (max-width: 1279px) and (min-width: 769px) and (orientation:portrait)  {
+    .wrapper-userproject{
+        min-height: 71rem;
+    }
+}
+@media screen and (max-width: 1279px) and (min-width: 720px) and (orientation:landscape)  {
+    .wrapper-userproject{
+        min-height: 20rem;
+    }
+}
+@media screen and (max-width: 1366px) and (min-width: 813px) and (orientation:landscape)  {
+    .wrapper-userproject{
+        min-height: 39.5rem;
+    }
+}
+
+@media screen and (min-width: 1280px)   {
+    .wrapper-userproject{
+      min-height: 28.2rem;
+    }
+  }
+  
+  

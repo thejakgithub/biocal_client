@@ -1,0 +1,42 @@
+@media screen and (max-width: 480px) {
+  .img-about {
+    width: 100%;
+    margin-bottom: 16rem;
+  }
+  .img-origin {
+    width: 100%;
+
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .img-about {
+    width: 100%;
+    margin-bottom: 18rem;
+  }
+  .img-origin {
+    width: 100%;
+
+  }
+}
+
+@media screen and (max-width: 1279px) and (min-width: 769px) {
+  .img-about {
+    width: 100%;
+    margin-bottom: 29rem;
+  }
+  .img-origin {
+    width: 100%;
+
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .img-about {
+    width: 800px;
+  }
+  .img-origin {
+    width: 800px;
+
+  }
+}

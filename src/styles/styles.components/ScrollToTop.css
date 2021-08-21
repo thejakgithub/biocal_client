@@ -1,0 +1,20 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    animation: fadeIn 700ms ease-in-out 1s both;
+    cursor: pointer;
+    
+  }
+  .scroll-to-top :hover{
+    opacity: .8;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

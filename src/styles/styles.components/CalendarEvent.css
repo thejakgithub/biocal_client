@@ -1,0 +1,14 @@
+.calendar{
+    height: 82vh;
+    width: 100%;
+}
+
+@media (max-width: 576px) {
+    .calendar{
+        height: 350px;
+        width: 100%;
+    }
+    
+    
+  }
+  

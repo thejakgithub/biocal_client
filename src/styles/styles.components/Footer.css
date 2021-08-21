@@ -1,0 +1,8 @@
+@media screen and (max-width: 480px) {
+  .text-footer {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+}

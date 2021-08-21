@@ -1,0 +1,34 @@
+.header-sidebar{
+    height: 4.688rem;
+    display: flex;
+    align-items: center;
+    border-bottom: solid white;
+}
+
+.header-sidebar-manage{
+    height: 4.688rem;
+    display: flex;
+    align-items: center;
+    border-bottom: solid white;  
+}
+
+@media (max-width: 576px) {
+    .header-sidebar{
+        height: 4.688rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: solid white;
+    }
+
+    .header-sidebar-manage{
+        height: 7rem;
+        display: flex;
+        padding-top: 0.5rem;
+        align-items: center;
+        padding-left: 1rem;
+        border-bottom: solid white;  
+    }
+    
+  }
+  
