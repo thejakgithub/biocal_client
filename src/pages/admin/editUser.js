@@ -58,7 +58,7 @@ export default function EditUser() {
         });
       }
     } else {
-      setFileImg("/file/receipts/" + firstReceiptName);
+      setFileImg(`${base_url}/file/receipts/${firstReceiptName}`);
       setReceiptName(firstReceiptName);
       clearErrors("fileImg");
     }
@@ -118,7 +118,7 @@ export default function EditUser() {
 
   useEffect(() => {
     setReceiptName(firstReceiptName);
-    setFileImg("/file/receipts/" + firstReceiptName);
+    setFileImg(`${base_url}/file/receipts/${firstReceiptName}`);
   }, [firstReceiptName]);
 
   const updateUser = (data) => {
@@ -149,10 +149,7 @@ export default function EditUser() {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
+        alert("แก้ไขรายชื่อสมาชิก เรียบร้อยแล้ว");
         setSuccess(true);
       })
       .catch((err) => {
@@ -167,7 +164,7 @@ export default function EditUser() {
       <header className="bg-success text-white header-sidebar justify-content-between ">
         <h4 className="mx-3">แก้ไขรายชื่อสมาชิก</h4>
       </header>
-      <div className="container d-flex justify-content-center my-4">
+      <div className="container d-flex justify-content-center my-4 ">
         <div className="card" style={{ width: 700 }}>
           <div className="card-header bg-success fs-5  text-white">
             แก้ไขรายชื่อสมาชิก

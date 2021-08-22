@@ -13,21 +13,24 @@ export default function Dashboard() {
   const [countPayment, setCountPayment] = useState(0);
 
   useEffect(() => {
+    let isMounted = true;
     Axios.get(`${base_url}/countProject`).then((res) => {
-      setCountProject(res.data[0].countProject);
+      isMounted && setCountProject(res.data[0].countProject);
     });
     Axios.get(`${base_url}/countNews`).then((res) => {
-      setCountNews(res.data[0].countNews);
+      isMounted && setCountNews(res.data[0].countNews);
     });
     Axios.get(`${base_url}/countArticle`).then((res) => {
-      setCountArticle(res.data[0].countArticle);
+      isMounted && setCountArticle(res.data[0].countArticle);
     });
     Axios.get(`${base_url}/countUser`).then((res) => {
-      setCountUser(res.data[0].countUser);
+      isMounted && setCountUser(res.data[0].countUser);
     });
     Axios.get(`${base_url}/countPayment`).then((res) => {
-      setCountPayment(res.data[0].countPayment);
+      isMounted && setCountPayment(res.data[0].countPayment);
     });
+
+    return () => { isMounted = false };
   }, [countProject, countNews, countArticle, countUser, countPayment]);
 
   return (
@@ -40,9 +43,7 @@ export default function Dashboard() {
             <CountDashboard title="รายชื่อสมาชิก" count={countUser} />
             <CountDashboard title="ชำระเงินค่าลงทะเบียน" count={countPayment} />
           </div>
-        
           <CalendarEvent />
-    
       </div>
     </>
   );

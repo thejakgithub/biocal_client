@@ -26,16 +26,19 @@ export default function Admin() {
   const [user, setUser] = useState("");
 
   useEffect(() => {
+    let isMounted = true;
     Axios.get(`${base_url}/login`).then((response) => {
-      if (response.data.loggedIn === true) {
-        setIsLoading(true);
-        setUser(response.data.user);
-      } else {
-        history.push("/");
-        setIsLoading(false);
+      if (isMounted) {
+        if (response.data.loggedIn === true) {
+          setIsLoading(true);
+          setUser(response.data.user);
+        } else {
+          history.push("/");
+          setIsLoading(false);
+        }
       }
     });
-    return () => setIsLoading(false);
+    return () => { isMounted = false };
   }, [history]);
 
   const logout = (evt) => {
@@ -69,9 +72,7 @@ export default function Admin() {
                       height={40}
                     />
                     <span className="fs-4  ms-2 ">B</span>
-                    <span className="fs-4 d-none d-sm-inline ">
-                      IOCAL 
-                    </span>
+                    <span className="fs-4 d-none d-sm-inline ">IOCAL</span>
                   </Link>
                   <ul
                     className="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start"
@@ -156,10 +157,9 @@ export default function Admin() {
               </div>
               <div className="col d-flex flex-column h-sm-100">
                 <main className="row overflow-auto">
-               
                   <Switch>
                     <Route path="/admin/dashboard">
-                    <HeaderSidebar />
+                      <HeaderSidebar />
                       <Dashboard />
                     </Route>
                     <Route path="/admin/projectManage" exact>

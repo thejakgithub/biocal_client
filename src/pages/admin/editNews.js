@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import Axios from "axios";
 import dayjs from "dayjs";
@@ -140,13 +140,13 @@ export default function EditNews() {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="file" className="form-label">
-                    <Link
-                      to={`/file/news/${fileName}`}
+                    <a
+                      href={`${base_url}/file/news/${fileName}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {fileName}
-                    </Link>
+                    </a>
                   </label>
                   <input
                     type="file"

@@ -40,9 +40,13 @@ export default function NewsManage() {
   );
 
   useEffect(() => {
+    let isMounted = true;
     Axios.get(`${base_url}/news`).then((res) => {
-      setNewsList(res.data);
+      isMounted && setNewsList(res.data);
     });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const onDeleteNews = (id) => {
@@ -55,7 +59,7 @@ export default function NewsManage() {
             })
           );
           alert("ลบข่าว/ประชาสัมพันธ์ เรียบร้อยแล้ว");
-        } 
+        }
       })
       .catch((err) => {
         if (err) alert(err);
@@ -76,17 +80,16 @@ export default function NewsManage() {
     }
 
     news.newsFile = (
-      <Link
-        to={`/file/news/${news.newsFile}`}
+      <a
+        href={`${base_url}/file/news/${news.newsFile}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         {news.newsFile}
-      </Link>
+      </a>
     );
     news["edit"] = (
       <Link to={`./newsManage/editNews/${news.newsID}`}>
-        {" "}
         <i className="fas fa-edit"></i>
       </Link>
     );

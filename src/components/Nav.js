@@ -14,12 +14,15 @@ export default function Nav() {
   const [modalShow, setModalShow] = useState(false);
 
   const onAdmin = () => {
+ 
     Axios.get(`${base_url}/login`).then((response) => {
+     
       if (response.data.loggedIn === true) {
         history.push("/admin/dashboard");
       } else {
         setModalShow(true);
       }
+
     });
   };
 

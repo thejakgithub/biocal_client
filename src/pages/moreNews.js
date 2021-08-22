@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Link } from "react-router-dom";
 import Table from "../components/Table";
 import Axios from "axios";
 import dayjs from "dayjs";
@@ -49,13 +48,13 @@ export default function MoreNews() {
         .format("DD MMM YYYY");
     }
     news.newsFile = (
-      <Link
-        to={`/file/news/${news.newsFile}`}
+      <a
+        href={`${base_url}/file/news/${news.newsFile}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         {news.newsFile}
-      </Link>
+      </a>
     );
   });
 

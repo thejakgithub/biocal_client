@@ -16,16 +16,20 @@ export default function Content() {
   let articleCount = 0;
 
   useEffect(() => {
+    let isMounted = true; 
     Axios.get(`${base_url}/projectContent`).then((res) => {
-      setProjectList(res.data);
+      isMounted && setProjectList(res.data);
     });
     Axios.get(`${base_url}/newsContent`).then((res) => {
-      setNewsList(res.data);
+      isMounted && setNewsList(res.data);
     });
     Axios.get(`${base_url}/articleContent`).then((res) => {
-      setArticleList(res.data);
+      isMounted && setArticleList(res.data);
     });
+    return () => { isMounted = false };
   }, []);
+
+
 
   return (
     <div className="container-fluid d-xxl-flex  wrapper-content  justify-content-evenly mb-4">
@@ -78,8 +82,8 @@ export default function Content() {
           {newsList.map((news) => {
             newsCount++;
             return (
-              <Link
-                to={`/file/news/${news.newsFile}`}
+              <a
+                href={`${base_url}/file/news/${news.newsFile}`}
                 key={news.newsID}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -87,7 +91,7 @@ export default function Content() {
               >{`${dayjs(news.newsDate)
                 .locale("th")
                 .add(543, "year")
-                .format("DD MMM YY")} - ${news.newsTopic}`}</Link>
+                .format("DD MMM YY")} - ${news.newsTopic}`}</a>
             );
           })}
           {newsCount >= 4 ? (
@@ -110,16 +114,16 @@ export default function Content() {
           {articleList.map((art) => {
             articleCount++;
             return (
-              <Link
+              <a
                 key={art.artID}
-                to={`/file/articles/${art.artFile}`}
+                href={`${base_url}/file/articles/${art.artFile}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="list-group-item list-group-item-action cut-text"
               >{`${dayjs(art.artDate)
                 .locale("th")
                 .add(543, "year")
-                .format("DD MMM YY")} - ${art.artTopic}`}</Link>
+                .format("DD MMM YY")} - ${art.artTopic}`}</a>
             );
           })}
           {articleCount >= 4 ? (

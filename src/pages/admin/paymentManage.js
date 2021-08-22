@@ -45,9 +45,11 @@ export default function PaymentManage() {
   );
 
   useEffect(() => {
+    let isMounted = true ;
     Axios.get(`${base_url}/payment`).then((res) => {
-      setPaymentList(res.data);
+      isMounted && setPaymentList(res.data);
     });
+    return () => { isMounted = false };
   }, []);
 
   const onConfirmPayment = (pjID, userID) => {
@@ -104,13 +106,13 @@ export default function PaymentManage() {
     }
     pay.userName = pay.userPrefix + pay.userFirstName + " " + pay.userLastName;
     pay.userReceipt = (
-      <Link
-        to={`/file/receipts/${pay.userReceipt}`}
+      <a
+        href={`${base_url}/file/receipts/${pay.userReceipt}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         {pay.userReceipt}
-      </Link>
+      </a>
     );
     pay["confirm"] = (
       <Link to="#">

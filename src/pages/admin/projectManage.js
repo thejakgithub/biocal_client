@@ -10,9 +10,11 @@ export default function ProjectManage() {
   const [projectList, setProjectList] = useState([]);
 
   useEffect(() => {
+    let isMounted = true;
     Axios.get(`${base_url}/projects`).then((res) => {
-      setProjectList(res.data);
+      isMounted && setProjectList(res.data);
     });
+    return () => { isMounted = false };
   }, []);
 
   const onDeleteProject = (id) => {
@@ -112,25 +114,25 @@ export default function ProjectManage() {
     }
 
     project.pjReply = (
-      <Link to={`/file/projects/${project.pjReply}`}>{project.pjReply}</Link>
+      <a href={`${base_url}/file/projects/${project.pjReply}`}>{project.pjReply}</a>
     );
     project.pjSchedule = (
-      <Link
-        to={`/file/projects/${project.pjSchedule}`}
+      <a
+        href={`${base_url}/file/projects/${project.pjSchedule}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         {project.pjSchedule}
-      </Link>
+      </a>
     );
     project.pjDescription = (
-      <Link
-        to={`/file/projects/${project.pjDescription}`}
+      <a
+        href={`${base_url}/file/projects/${project.pjDescription}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         {project.pjDescription}
-      </Link>
+      </a>
     );
     project["edit"] = (
       <Link to={`./projectManage/editProject/${project.pjID}`}>

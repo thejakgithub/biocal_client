@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Link } from "react-router-dom";
 import Table from "../components/Table";
 import Axios from "axios";
 import dayjs from "dayjs";
@@ -47,13 +46,13 @@ export default function MoreArticle() {
         .format("DD MMM YYYY");
     }
     art.artFile = (
-      <Link
-        to={`/file/articles/${art.artFile}`}
+      <a
+        href={`${base_url}/file/articles/${art.artFile}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         {art.artFile}
-      </Link>
+      </a>
     );
   });
 

@@ -40,8 +40,11 @@ export default function ArticleManage() {
   );
 
   useEffect(() => {
+
     Axios.get(`${base_url}/articles`).then((res) => {
-      setArticleList(res.data);
+      let isMounted = true;    
+      isMounted && setArticleList(res.data);
+      return () => { isMounted = false };
     });
   }, []);
 
@@ -75,13 +78,13 @@ export default function ArticleManage() {
         .format("DD MMM YYYY");
     }
     art.artFile = (
-      <Link
-        to={`/file/articles/${art.artFile}`}
+      <a
+        href={`${base_url}/file/articles/${art.artFile}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         {art.artFile}
-      </Link>
+      </a>
     );
     art["edit"] = (
       <Link to={`./articleManage/editArticle/${art.artID}`}>

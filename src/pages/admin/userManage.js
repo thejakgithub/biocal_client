@@ -68,9 +68,11 @@ export default function UserManage() {
   );
 
   useEffect(() => {
+    let isMounted = true; 
     Axios.get(`${base_url}/userproject`).then((res) => {
-      setUserList(res.data);
+      isMounted && setUserList(res.data);
     });
+    return () => { isMounted = false };
   }, []);
 
   const onUserDelete = (pjID, userID) => {
@@ -103,13 +105,13 @@ export default function UserManage() {
     user.userName =
       user.userPrefix + user.userFirstName + " " + user.userLastName;
     user.userReceipt = (
-      <Link
-        to={`/file/receipts/${user.userReceipt}`}
+      <a
+        href={`${base_url}/file/receipts/${user.userReceipt}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         {user.userReceipt}
-      </Link>
+      </a>
     );
     user["edit"] = (
       <Link to={`./userManage/editUser/${user.pjID}/${user.userID}`}>

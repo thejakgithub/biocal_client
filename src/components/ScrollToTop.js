@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../styles/styles.components/ScrollToTop.css'
+import "../styles/styles.components/ScrollToTop.css";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,24 +19,26 @@ export default function ScrollToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
   useEffect(() => {
     const ac = new AbortController();
-    Promise.all([
-      window.addEventListener("scroll", toggleVisibility)
-    ]).then(() => setFetched(true))
-      .catch(ex => console.error(ex));
+    Promise.all([window.addEventListener("scroll", toggleVisibility)])
+      .then(() => setFetched(true))
+      .catch((ex) => console.error(ex));
 
-    return () => ac.abort();
+    return () => {
+      ac.abort();
+      setFetched(false);
+    };
   }, []);
 
   return (
     <div className="scroll-to-top">
       {isVisible && fetched && (
-        <div onClick={ scrollToTop}>
+        <div onClick={scrollToTop}>
           <i className="fas fa-arrow-circle-up fs-1  mx-4 mb-2 text-dark"></i>
         </div>
       )}

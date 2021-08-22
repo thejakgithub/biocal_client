@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import Axios from "axios";
 import { useForm } from "react-hook-form";
@@ -199,13 +199,13 @@ export default function EditProject() {
                   </div>
                   <div className="mb-3">
                     <label className="form-label">
-                      <Link
-                        to={`/file/projects/${projectSchedule}`}
+                      <a
+                        href={`${base_url}/file/projects/${projectSchedule}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         {projectSchedule}{" "}
-                      </Link>
+                      </a>
                     </label>
                     <input
                       {...register("projectSchedule")}
@@ -252,10 +252,10 @@ export default function EditProject() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="form-label">
-                      <Link to={`/file/projects/${projectReply}`}>
+                    <label className="form-label ">
+                      <a href={`${base_url}/file/projects/${projectReply}`}>
                         {projectReply}
-                      </Link>
+                      </a>
                     </label>
                     <input
                       {...register("projectReply")}
@@ -266,14 +266,14 @@ export default function EditProject() {
                     <div className="form-text">แบบตอบรับ ( .docx )</div>
                   </div>
                   <div className="mb-3">
-                    <label className="form-label">
-                      <Link
-                        to={`/file/projects/${projectDes}`}
+                    <label className="form-label ">
+                      <a
+                        href={`${base_url}/file/projects/${projectDes}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         {projectDes}
-                      </Link>
+                      </a>
                     </label>
                     <input
                       {...register("projectDes")}

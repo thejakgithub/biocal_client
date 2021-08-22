@@ -207,7 +207,7 @@ export default function RegisterProject() {
                         <h3 className="login-heading2 mb-5">{projectName}</h3>
                       </div>
 
-                      <div className="form-group " require>
+                      <div className="form-group " >
                         <div className="d-inline-flex mb-3">
                           <div className="d-flex mx-4 ">
                             <label>คำนำหน้า</label>
@@ -330,7 +330,7 @@ export default function RegisterProject() {
                         />
                         <label htmlFor="inputTel">เบอร์โทร</label>
                       </div>
-                      <div className="form-group " require>
+                      <div className="form-group ">
                         <div className="d-inline-flex mx-4">
                           <div className="d-flex">
                             <label>รับประทานอาหาร</label>
